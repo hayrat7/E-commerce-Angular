@@ -22,6 +22,7 @@
       "app",
       "camelCase"
     ],
+
     "component-selector": [
       true,
       "element",
@@ -80,11 +81,11 @@
       true,
       "single"
     ],
-    "semicolon": {
+    /*"semicolon": {
       "options": [
         "always"
       ]
-    },
+    },*/
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",
@@ -95,7 +96,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
