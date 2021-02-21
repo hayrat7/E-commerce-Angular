@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductModel} from '../models/Product.model';
+import {ProductItem} from '../models/productItem.model';
+import {CaddyService} from '../common/caddy-service/caddy.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {LoginService} from '../common/login-service/login.service';
 
 
 @Component({
@@ -8,49 +11,19 @@ import {ProductModel} from '../models/Product.model';
   styleUrls: ['./caddy.component.css']
 })
 export class CaddyComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'price', 'quantity','delete'];
-  dataSource: ProductModel[] = [
-    {  id: 1,
-      name:'test',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 2,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 3,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 2,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 2,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 2,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    },
-    {  id: 2,
-      name:'test1',
-      price:10.0,
-      quantity:5
-    }
-  ];
+  displayedColumns: string[] = ['name', 'price', 'quantity', 'delete'];
+  dataSource: MatTableDataSource<ProductItem> = new MatTableDataSource<ProductItem>(this.caddyService.getCaddy())
 
-  constructor() {
+  constructor(private caddyService:CaddyService,
+              private loginService:LoginService
+              ) {
   }
-
   ngOnInit(): void {
+    this.loginService.checkAuthentication('caddy')
   }
-
+  removeItem(element: ProductItem) {
+    console.log(element)
+    this.caddyService.remove(element)
+    this.dataSource.data = this.caddyService.getCaddy();
+  }
 }

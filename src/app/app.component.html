@@ -1,16 +1,16 @@
-<mat-toolbar color="primary" >
+<mat-toolbar  >
 
   <span>E-commerce App</span>
 
-  <button mat-button mat-flat-button color="primary">Products</button>
-  <button mat-button mat-flat-button color="primary">Categories</button>
-  <button mat-button mat-flat-button color="primary">Bills</button>
+  <button mat-button (click)="getProducts()">Products</button>
+  <button mat-button >Categories</button>
+  <button mat-button >Bills</button>
 
   <span class="menu-spacer"></span>
   <button mat-icon-button >
     <mat-icon>favorite</mat-icon>
   </button>
-  <button (click)="getCaddy()" mat-icon-button  >
+  <button (click)="getCaddy()" mat-icon-button >
     <mat-icon>shopping_cart</mat-icon>
   </button>
   <button (click)="logOut()" mat-icon-button >

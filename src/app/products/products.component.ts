@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {HttpResponse} from '@angular/common/http';
 import {ProductService} from '../common/product-service/product.service';
 import {ProductModel} from '../models/Product.model';
+import {CaddyService} from '../common/caddy-service/caddy.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ProductsComponent implements OnInit {
   picUrl='http://localhost:8092/INVENTORY-SERVICE/productPic/'
   constructor(private loginService: LoginService,
               private productService: ProductService,
-
+              private caddyService:CaddyService
   ) {
   }
 
@@ -38,4 +39,7 @@ export class ProductsComponent implements OnInit {
   }
 
 
+  addProductToCaddy(product: ProductModel) {
+    this.caddyService.addProductItemToCaddy(product)
+  }
 }

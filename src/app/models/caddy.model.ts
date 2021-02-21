@@ -1,6 +1,11 @@
 import {ProductItem} from './productItem.model';
+import {Customer} from './Customer';
+import {Injectable} from '@angular/core';
 
-
+@Injectable({
+  providedIn: 'root'
+})
 export class Caddy{
-  productItems: Map<number,ProductItem> =new Map()
+  productItems: ProductItem[]=[]
+  customer:Customer
 }

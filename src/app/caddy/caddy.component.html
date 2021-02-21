@@ -22,10 +22,10 @@
           </mat-card-title>
           <mat-card-content>
             <div class="example-container mat-elevation-z8">
-              <mat-table #table [dataSource]="dataSource">
+              <mat-table  [dataSource]="dataSource">
                 <ng-container matColumnDef="name">
-                  <mat-header-cell *matHeaderCellDef> ProductModel Name </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                  <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.product.name}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="price">
                   <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
@@ -39,8 +39,8 @@
                   <mat-header-cell *matHeaderCellDef></mat-header-cell>
                   <mat-cell *matCellDef="let element">
                     <a
-                      type="button">
-                      <mat-icon class="icon">delete</mat-icon>
+                      type="button" (click)="removeItem(element)">
+                      <mat-icon  class="icon">delete</mat-icon>
                     </a>
                   </mat-cell>
                 </ng-container>
